@@ -1,22 +1,23 @@
-﻿namespace Caslo.Classes
+﻿using System;
+
+namespace Caslo.AndEventes
 {
     class Person
     {
-        public string Race { get; set; }
-        public string Role { get; set; }
-        public string Color { get; set; }
-        public int Height { get; set; }
+        public event Action CreateCharacter;
+        public event EventHandler CreateLimit;
 
-        public Person()
+        public string Nickname { get; set; }
+
+        public void Limit(int lim)
         {
-
-        }
-
-        public string getChatacter
-        {
-            get
+            if(lim < 5)
             {
-                return $"Раса: {Race}, Роль: {Role}, Цвет: {Color}, Рост: {Height}.";
+                CreateCharacter?.Invoke();
+            }
+            else
+            {
+                CreateLimit?.Invoke(this, null);
             }
         }
     }
