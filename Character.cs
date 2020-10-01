@@ -1,31 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Caslo.OperactionAbstract
+﻿namespace Caslo.LINQ
 {
-    class Character : Player
+    class Character
     {
-        public Character(string race, string gender, string classes, int level) : base(race, gender, classes, level)
+        public string nickname { get; set; }
+        public int lvl { get; set; }
+        public override string ToString()
         {
-
+            return $"Name: {nickname}, lvl: {lvl} ";
         }
-
-        public static Character operator+ (Character gameOne, Character gamerThree)
-        {
-            int level = (int)Math.Round(gameOne.Level + gamerThree.Level / 4.0);
-            var character = new Character("Орк", "Мужчина", "Воин", level);
-            return character;
-        }
-
-        public static Character operator/ (Character gameFour, Character gamerTwo)
-        {
-            int level = (int)Math.Round(gameFour.Level + gamerTwo.Level / 4.0);
-            var character = new Character("Гном", "Мужчина", "Разбойник", level);
-            return character;
-        }
-
     }
 }
