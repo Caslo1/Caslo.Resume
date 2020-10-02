@@ -1,12 +1,14 @@
-﻿namespace Caslo.LINQ
+﻿using System;
+
+namespace Caslo.ExtensionMethod
 {
-    class Character
+    public sealed class Character
     {
-        public string nickname { get; set; }
+        public string Number { get; set; }
         public int lvl { get; set; }
         public override string ToString()
         {
-            return $"Name: {nickname}, lvl: {lvl} ";
+            return $"Nickname: {Number}  lvl: {lvl}";
         }
     }
 }
