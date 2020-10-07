@@ -1,32 +1,21 @@
 ﻿using System;
 
-namespace Caslo.Serializations
+namespace Caslo.TypeObject
 {
-    [Serializable]
-    public class Person
+    class Person
     {
-        [NonSerialized]
-        private readonly Random rnd = new Random(DateTime.Now.Millisecond);
-        public string Name { get; set; }
-        public int Id { get; set; }
+        public string Person1 { get; set; }
+        public int lvl { get; set; }
+        public Person lvlup { get; set; }
 
-        public Person()
+        public Person Clone()
         {
-            Id = rnd.Next(254, 500);
-            Name = "Pablo " + rnd;
-        }
-
-        public Person(string name, int id)
-        {
-            // TODO: Input validation
-
-            Name = name;
-            Id = id;
+            return MemberwiseClone() as Person;
         }
 
         public override string ToString()
         {
-            return Id.ToString();
+            return lvl.ToString();
         }
     }
 }
