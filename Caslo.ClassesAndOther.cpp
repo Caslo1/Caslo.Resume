@@ -43,9 +43,9 @@ public:
         return number;
     }
 
-    void Print()
+    void Print(Character & character)
     {
-        cout << characterName << "\t" << lvl << endl;
+        cout << "Name " << character.characterName << "\t" << "lvl " << character.lvl << endl;
     }
 
 private:
@@ -67,7 +67,7 @@ int main()
     Character character2("Thift", 50);
     Character character3("Pudman", 4);
 
-    //cout << character1.Print << endl;
+    character1.Print(character1);
     cout << "Номер персонажа" << endl;
     cout << character1.GetNum() << endl << endl; 
     cout << "Количество персонажей" << endl;
